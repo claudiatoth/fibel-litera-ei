@@ -230,7 +230,7 @@ SCREENS[4] = function(){
     {t:'Nora', a:'ei-nora'}, {t:'Oma', a:'ei-oma'}, {t:'Tom', a:'ei-tom'}
   ];
   const SENT = [
-    {t:'Tom malt.', a:'st-tommalt'}, {t:'Nina malt.', a:'st-ninamalt'}
+    {t:'Oma isst ein Eis.', a:'st-omaisst'}, {t:'Lara isst ein Ei.', a:'st-laraisst'}
   ];
   let pills = READ.map((w,i)=>'<div class="readword" data-i="'+i+'">'+w.t+'</div>').join('');
   let sents = SENT.map((s,i)=>'<div class="readsent" data-s="'+i+'"><span>'+s.t+'</span><span class="rs-play">🔊</span></div>').join('');
@@ -498,10 +498,10 @@ SCREENS[11] = function(){
 /* 12 — SCRIE TU! construiește cuvântul */
 SCREENS[12] = function(){
   const BUILD = [
-    {w:'Ei',  a:'ei-ei'},
-    {w:'Eis', a:'ei-eis'},
-    {w:'Tom', a:'ei-tom'},
-    {w:'Oma', a:'ei-oma'}
+    {w:'Ei',   a:'ei-ei'},
+    {w:'Eis',  a:'ei-eis'},
+    {w:'Oma',  a:'ei-oma'},
+    {w:'Lara', a:'ei-lara'}
   ];
   let idx = 0;
   function round(){
@@ -544,11 +544,11 @@ SCREENS[12] = function(){
 
 /* 13 — SCRIE PROPOZIȚIA */
 SCREENS[13] = function(){
-  const GLYPH = {'N':'s-cap-n','S':'s-cap-s','R':'s-cap-r','L':'s-cap-l','M':'s-cap-m','T':'s-cap-t',
-                 'n':'s-n','s':'s-s','r':'s-r','t':'s-t','m':'s-m','a':'s-a','i':'s-i','l':'s-l','o':'s-o'};
+  const GLYPH = {'N':'s-cap-n','S':'s-cap-s','R':'s-cap-r','L':'s-cap-l','M':'s-cap-m','T':'s-cap-t','O':'s-cap-o','E':'s-cap-e',
+                 'n':'s-n','s':'s-s','r':'s-r','t':'s-t','m':'s-m','a':'s-a','i':'s-i','l':'s-l','o':'s-o','e':'s-e'};
   const SENT = [
-    {t:'Tom malt.', a:'st-tommalt'},
-    {t:'Nina malt.', a:'st-ninamalt'}
+    {t:'Oma isst ein Eis.', a:'st-omaisst'},
+    {t:'Lara isst ein Ei.', a:'st-laraisst'}
   ];
   function rowHtml(text){
     let cells='';
