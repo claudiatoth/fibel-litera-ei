@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <rect x="20" y="46" width="80" height="28" rx="3" fill="#D4A574" stroke="#065f46" stroke-width="3"/>
+  <g stroke="#065f46" stroke-width="2"><path d="M30 46 v10 M40 46 v7 M50 46 v10 M60 46 v7 M70 46 v10 M80 46 v7 M90 46 v10"/></g>
+  <rect x="20" y="46" width="80" height="9" fill="#FBF7EF" opacity="0.5"/>
+</svg>

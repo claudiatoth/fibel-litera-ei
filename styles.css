@@ -1,0 +1,331 @@
+/* ===== FIBEL pilot — Litera M cu Mimi · brand Claudia Toth v2 ===== */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap');
+
+:root{
+  --crem:#FAF6EE; --ivory:#FBF7EF; --surface:#F5F0E8;
+  --emerald:#10b981; --emerald-d:#047857; --emerald-dd:#065f46;
+  --auriu:#D4A574; --auriu-d:#B88848; --terra:#E07856;
+  --ink:#1F1B16; --warm:#5A5147; --border:#E5DCC9;
+  --der:#2563eb; --die:#dc2626; --das:#16a34a;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{margin:0;height:100%;}
+body{
+  font-family:'Fredoka',system-ui,Segoe UI,sans-serif;
+  background:radial-gradient(circle at 50% 0%,#fffdf8 0%,var(--crem) 60%);
+  color:var(--ink); min-height:100%;
+  display:flex; flex-direction:column; align-items:center;
+  overflow-x:hidden;
+}
+
+/* ---- top bar: progress stars ---- */
+.topbar{width:100%;max-width:640px;display:flex;align-items:center;justify-content:center;gap:12px;padding:16px 16px 4px;}
+.navbtn{font-family:inherit;cursor:pointer;border:none;width:40px;height:40px;border-radius:50%;
+  background:var(--emerald);color:#fff;font-size:1.3rem;font-weight:700;flex-shrink:0;
+  box-shadow:0 3px 0 var(--emerald-d);transition:transform .1s,box-shadow .1s,opacity .2s;}
+.navbtn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--emerald-d);}
+.navbtn:disabled{opacity:.3;cursor:default;box-shadow:none;}
+.dots{display:flex;gap:9px;flex-wrap:wrap;justify-content:center;}
+.dot{cursor:pointer;}
+.dot{width:16px;height:16px;border-radius:50%;background:var(--border);transition:.3s;}
+.dot.done{background:var(--auriu);}
+.dot.active{background:var(--emerald);transform:scale(1.35);box-shadow:0 0 0 4px #d1fae5;}
+
+/* ---- stage ---- */
+.stage{
+  width:100%;max-width:640px;flex:1;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:8px 18px 28px;gap:14px;
+}
+.screen{display:none;flex-direction:column;align-items:center;gap:16px;width:100%;animation:pop .35s ease;}
+.screen.on{display:flex;}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.97);}to{opacity:1;transform:none;}}
+
+.mimi{width:160px;height:160px;filter:drop-shadow(0 8px 14px rgba(6,95,70,.18));}
+.mimi.small{width:96px;height:96px;}
+.kicker{font-size:1rem;color:var(--emerald-d);font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin:0;}
+.title{font-size:2.1rem;font-weight:700;color:var(--emerald-dd);margin:0;line-height:1.1;}
+.parent-note{font-size:.82rem;color:var(--warm);font-style:italic;max-width:420px;margin:2px auto 0;opacity:.85;}
+
+/* ---- big buttons ---- */
+.big-btn{
+  font-family:inherit;cursor:pointer;border:none;
+  font-size:1.5rem;font-weight:600;color:#fff;
+  background:var(--emerald);padding:18px 38px;border-radius:22px;
+  box-shadow:0 6px 0 var(--emerald-d),0 10px 18px rgba(16,185,129,.28);
+  transition:transform .1s, box-shadow .1s; min-width:120px;
+}
+.big-btn:active{transform:translateY(5px);box-shadow:0 1px 0 var(--emerald-d),0 4px 10px rgba(16,185,129,.25);}
+.big-btn.amber{background:var(--auriu);box-shadow:0 6px 0 var(--auriu-d),0 10px 18px rgba(212,165,116,.3);}
+.big-btn.amber:active{box-shadow:0 1px 0 var(--auriu-d);}
+.btn-row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;}
+
+/* round sound button */
+.sound-btn{
+  width:120px;height:120px;border-radius:50%;border:none;cursor:pointer;
+  background:var(--emerald);color:#fff;font-size:3.2rem;
+  box-shadow:0 8px 0 var(--emerald-d),0 12px 22px rgba(16,185,129,.3);
+  transition:transform .1s,box-shadow .1s;
+}
+.sound-btn:active{transform:translateY(6px);box-shadow:0 2px 0 var(--emerald-d);}
+.sound-btn.pulse{animation:pulse 1.1s infinite;}
+@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.07);}}
+
+/* ---- giant letter ---- */
+.letter-hero{
+  font-size:8rem;font-weight:700;line-height:1;color:var(--emerald-dd);
+  text-shadow:0 6px 0 #d1fae5;letter-spacing:.1em;
+}
+.letter-hero .lo{color:var(--auriu-d);}
+
+/* ---- picture cards grid ---- */
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;width:100%;max-width:440px;}
+.card{
+  background:var(--ivory);border:2px solid var(--border);border-radius:20px;
+  padding:14px 10px 12px;cursor:pointer;transition:transform .12s,box-shadow .12s;
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  box-shadow:0 3px 8px rgba(0,0,0,.05);
+}
+.card:active{transform:scale(.96);}
+.card.tapped{border-color:var(--emerald);box-shadow:0 0 0 4px #d1fae5;}
+.circle{
+  width:104px;height:104px;border-radius:50%;background:#fff;
+  display:flex;align-items:center;justify-content:center;border:5px solid var(--auriu);
+  box-shadow:0 5px 14px rgba(0,0,0,.08);
+}
+.circle img{width:74px;height:74px;display:block;}
+.circle.ring-m{border-color:var(--der);}
+.circle.ring-f{border-color:var(--die);}
+.circle.ring-n{border-color:var(--das);}
+.word{font-size:1.35rem;font-weight:600;}
+.art-m{color:var(--der);} .art-f{color:var(--die);} .art-n{color:var(--das);}
+.word .ro{display:block;font-size:.8rem;color:var(--warm);font-weight:400;font-style:italic;}
+
+/* ---- game ---- */
+.game-q{font-size:1.4rem;font-weight:600;color:var(--emerald-dd);margin:0;}
+.game-q .m-hi{color:var(--terra);}
+.game-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;width:100%;max-width:420px;}
+.tile{
+  background:var(--ivory);border:2px solid var(--border);border-radius:20px;padding:12px;cursor:pointer;
+  box-shadow:0 3px 8px rgba(0,0,0,.05);transition:transform .1s;
+}
+.tile:active{transform:scale(.95);}
+.tile img{width:80px;height:80px;display:block;margin:0 auto;}
+.tile.good{border-color:var(--emerald);box-shadow:0 0 0 4px #d1fae5;pointer-events:none;}
+.tile.good::after{content:"⭐";position:absolute;}
+.tile.bad{animation:shake .4s;}
+@keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-8px);}75%{transform:translateX(8px);}}
+
+/* ---- trace ---- */
+.trace-wrap{position:relative;width:260px;height:260px;}
+.trace-guide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-size:13rem;font-weight:700;color:#e7e0cf;line-height:1;user-select:none;pointer-events:none;}
+.trace-start{position:absolute;width:18px;height:18px;border-radius:50%;background:#10b981;border:3px solid #fff;box-shadow:0 0 0 3px #10b981;transform:translate(-50%,-50%);animation:pulse 1.1s infinite;z-index:3;pointer-events:none;}
+.trace-stroke{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;user-select:none;}
+#traceCanvas{position:absolute;inset:0;border-radius:18px;touch-action:none;cursor:crosshair;z-index:2;}
+
+/* ---- propoziții de citit (de la litera T) ---- */
+.sent-col{display:flex;flex-direction:column;gap:10px;width:100%;max-width:320px;margin:2px auto 0;}
+.readsent{display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer;
+  background:var(--ivory);border:2.5px solid var(--terra);border-radius:16px;padding:12px 18px;
+  font-size:1.5rem;font-weight:600;color:var(--emerald-dd);box-shadow:0 3px 8px rgba(0,0,0,.05);transition:transform .1s,box-shadow .12s;}
+.readsent:active{transform:scale(.97);}
+.readsent.tapped{border-color:var(--emerald);box-shadow:0 0 0 4px #d1fae5;}
+.readsent .rs-play{font-size:1.3rem;}
+
+/* ---- celebration ---- */
+.stars-won{font-size:2.2rem;letter-spacing:6px;}
+.confetti{position:fixed;top:-30px;font-size:1.6rem;pointer-events:none;animation:fall 2.2s linear forwards;z-index:50;}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg);opacity:.9;}}
+
+/* ---- footer brand ---- */
+.brandbar{padding:10px 0 18px;font-size:.8rem;color:var(--warm);text-align:center;}
+.brandbar b{color:var(--emerald-d);}
+.bf-foot{height:1.2em;width:auto;vertical-align:-0.24em;margin-right:.3em;}
+.bf-inline{height:1.05em;width:auto;vertical-align:-0.16em;margin-right:.3em;}
+/* buton frumos „Pentru părinți" pe ecranul de start */
+.parent-btn{font-family:inherit;cursor:pointer;margin-top:10px;
+  font-size:1.1rem;font-weight:600;color:var(--emerald-d);
+  background:var(--ivory);border:2.5px solid var(--emerald);
+  padding:13px 30px;border-radius:18px;
+  box-shadow:0 4px 0 #b9e6d3,0 8px 16px rgba(16,185,129,.14);
+  transition:transform .1s,box-shadow .1s,background .15s;}
+.parent-btn:hover{background:#eafaf3;}
+.parent-btn:active{transform:translateY(4px);box-shadow:0 1px 0 #b9e6d3;}
+
+/* ---- dual letter (M mare / m mic) ---- */
+.dual-letter{display:flex;gap:34px;align-items:flex-end;justify-content:center;margin:4px 0;}
+.dl{cursor:pointer;font-size:6.5rem;font-weight:700;color:var(--emerald-dd);line-height:1;text-shadow:0 5px 0 #d1fae5;transition:transform .12s;}
+.dl:active{transform:scale(.94);}
+.dl small{display:block;font-size:.95rem;color:var(--warm);font-weight:500;text-shadow:none;}
+
+/* ---- letter grid (Suche M und m) ---- */
+.letter-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;max-width:340px;width:100%;}
+.lcell{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:600;
+  background:var(--ivory);border:2px solid var(--border);border-radius:12px;cursor:pointer;color:var(--ink);transition:transform .1s;}
+.lcell:active{transform:scale(.9);}
+.lcell.found{background:#d1fae5;border-color:var(--emerald);color:var(--emerald-d);pointer-events:none;}
+.lcell.miss{animation:shake .4s;}
+.counter{font-size:1rem;color:var(--warm);font-weight:500;}
+
+/* ---- syllables ---- */
+.syl-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;}
+.syl{font-size:1.7rem;font-weight:600;color:#fff;background:var(--auriu);padding:12px 24px;border-radius:16px;cursor:pointer;
+  box-shadow:0 4px 0 var(--auriu-d);transition:transform .1s,box-shadow .1s;}
+.syl:active{transform:translateY(4px);box-shadow:0 1px 0 var(--auriu-d);}
+.syl .hi{color:#fff5e6;}
+
+/* ---- legare silabe (tap-tap -> cuvinte) ---- */
+.syll-wrap{position:relative;display:flex;justify-content:space-between;gap:70px;width:100%;max-width:340px;margin:6px auto 0;}
+.syll-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;overflow:visible;}
+.sl-line{stroke:var(--emerald);stroke-width:5;stroke-linecap:round;animation:lndraw .35s ease;}
+@keyframes lndraw{from{opacity:0;}to{opacity:1;}}
+.syll-col{display:flex;flex-direction:column;gap:14px;z-index:2;}
+.syll{font-family:inherit;font-size:1.7rem;font-weight:700;color:#fff;background:var(--auriu);border:none;
+  padding:14px 0;width:96px;border-radius:16px;cursor:pointer;letter-spacing:1px;
+  box-shadow:0 4px 0 var(--auriu-d);transition:transform .1s,box-shadow .1s,background .15s;}
+.syll:active{transform:translateY(3px);box-shadow:0 1px 0 var(--auriu-d);}
+.syll.sel{background:var(--emerald);box-shadow:0 4px 0 var(--emerald-d);transform:scale(1.05);}
+.syll.done{background:var(--emerald);box-shadow:0 4px 0 var(--emerald-d);opacity:.95;}
+.syll.bad{animation:shake .4s;}
+.syll-made{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;min-height:1.6rem;margin-top:4px;}
+.made-pill{background:#d1fae5;color:var(--emerald-dd);font-weight:700;font-size:1.05rem;border-radius:12px;padding:5px 14px;animation:pop .3s ease;}
+
+/* ---- Scrie tu! (construieste cuvantul din litere) ---- */
+.build-slots{display:flex;gap:10px;justify-content:center;margin:6px 0 2px;}
+.bslot{width:54px;height:64px;border:none;border-bottom:5px solid var(--auriu);background:var(--ivory);border-radius:10px 10px 0 0;
+  display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:700;color:var(--emerald-dd);}
+.bslot.filled{border-bottom-color:var(--emerald);background:#eafaf3;animation:pop .25s ease;}
+.build-pool{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;max-width:340px;margin:4px auto 0;}
+.bletter{font-family:inherit;font-size:1.7rem;font-weight:700;color:#fff;background:var(--emerald);border:none;
+  width:60px;height:60px;border-radius:14px;cursor:pointer;box-shadow:0 4px 0 var(--emerald-d);transition:transform .1s,box-shadow .1s,opacity .2s;}
+.bletter:active{transform:translateY(3px);box-shadow:0 1px 0 var(--emerald-d);}
+.bletter.used{opacity:.25;pointer-events:none;}
+.bletter.bad{animation:shake .4s;}
+
+/* ---- scrie propoziția (literă cu literă, cu săgeți) ---- */
+.stl-block{width:100%;max-width:440px;margin:0 auto 10px;}
+.stl-head{display:flex;align-items:center;gap:10px;justify-content:center;font-size:1.4rem;font-weight:700;color:var(--emerald-dd);}
+.stl-mini{font-family:inherit;border:2px solid var(--border);background:var(--ivory);border-radius:10px;width:38px;height:38px;cursor:pointer;font-size:1rem;color:var(--emerald-d);box-shadow:0 2px 0 #e3dccb;transition:transform .1s;}
+.stl-mini:active{transform:translateY(2px);box-shadow:none;}
+.stl-wrap{position:relative;display:flex;flex-wrap:wrap;align-items:flex-end;gap:2px;justify-content:center;
+  background:var(--ivory);border:2px dashed var(--terra);border-radius:16px;padding:8px 6px;margin-top:6px;}
+.stl-cell{width:46px;height:66px;}
+.stl-cell img{width:100%;height:100%;display:block;pointer-events:none;}
+.stl-gap{width:20px;}
+.stl-punct{font-size:2.4rem;font-weight:700;color:#cbd8d0;align-self:flex-end;line-height:.9;}
+.stl-canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair;z-index:2;border-radius:16px;}
+
+/* ---- der/die/das quiz ---- */
+.art-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.art-btn{font-family:inherit;font-size:1.4rem;font-weight:700;color:#fff;border:none;border-radius:16px;padding:14px 26px;cursor:pointer;box-shadow:0 4px 0 rgba(0,0,0,.18);transition:transform .1s;}
+.art-btn:active{transform:translateY(3px);}
+.art-btn.der{background:var(--der);} .art-btn.die{background:var(--die);} .art-btn.das{background:var(--das);}
+.art-btn .art-shape{width:1.05em;height:1.05em;fill:#fff;opacity:.92;vertical-align:-3px;margin-right:7px;}
+.fb{min-height:1.4em;font-size:1.1rem;font-weight:600;}
+.fb.ok{color:var(--emerald-d);} .fb.no{color:var(--die);}
+
+/* ---- story (propozitii semnificative) ---- */
+.story{display:flex;flex-direction:column;gap:12px;width:100%;max-width:470px;}
+.story-row{display:flex;align-items:center;gap:14px;background:var(--ivory);border:2px solid var(--border);
+  border-radius:16px;padding:10px 14px;cursor:pointer;text-align:left;transition:transform .1s,box-shadow .1s;}
+.story-row:active{transform:scale(.98);}
+.story-row.read{border-color:var(--emerald);box-shadow:0 0 0 3px #d1fae5;}
+.story-row img{width:56px;height:56px;flex-shrink:0;}
+.story-row .s-de{font-size:1.18rem;font-weight:600;color:var(--ink);line-height:1.25;}
+.story-row .s-ro{font-size:.78rem;color:var(--warm);font-style:italic;}
+.story-row .s-play{margin-left:auto;font-size:1.5rem;}
+.m-bold{color:var(--terra);font-weight:700;}
+
+/* ---- flashcards (carduri de memorie) ---- */
+.flip-card{width:240px;height:296px;perspective:1100px;cursor:pointer;margin:0 auto;}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d;}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg);}
+.flip-face{position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;
+  border-radius:24px;background:var(--ivory);border:3px solid var(--border);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;box-shadow:0 6px 16px rgba(0,0,0,.08);}
+.flip-back{transform:rotateY(180deg);}
+.flip-face .big-word{font-size:1.9rem;font-weight:700;}
+.flip-face .big-word .ro{display:block;font-size:.9rem;color:var(--warm);font-weight:400;font-style:italic;margin-top:2px;}
+.flip-hint{font-size:.85rem;color:var(--warm);font-style:italic;}
+.flashnav{display:flex;gap:20px;align-items:center;justify-content:center;}
+
+/* ---- Citește! cuvinte ---- */
+.read-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;max-width:450px;}
+.readword{font-family:inherit;font-size:1.7rem;font-weight:700;color:var(--emerald-dd);background:var(--ivory);
+  border:2.5px solid var(--border);border-radius:14px;padding:10px 22px;cursor:pointer;
+  box-shadow:0 3px 0 #e3dccb;transition:transform .1s;letter-spacing:1px;}
+.readword:active{transform:translateY(3px);}
+.readword.tapped{border-color:var(--emerald);color:var(--emerald-d);}
+
+/* ---- Wo hörst du? (pozitia sunetului) ---- */
+.pos-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:4px;}
+.pos-btn{font-family:inherit;cursor:pointer;background:var(--ivory);border:2.5px solid var(--border);border-radius:16px;
+  padding:12px 14px;display:flex;flex-direction:column;align-items:center;gap:3px;min-width:98px;
+  font-size:.95rem;font-weight:600;color:var(--emerald-dd);box-shadow:0 3px 0 #e3dccb;transition:transform .1s;}
+.pos-btn:active{transform:translateY(3px);}
+.pos-btn.good{border-color:var(--emerald);box-shadow:0 0 0 4px #d1fae5;}
+.pos-btn.bad{animation:shake .4s;}
+.pos-btn small{font-size:.72rem;color:var(--warm);font-weight:400;font-style:italic;}
+.pos-dots{font-size:1.15rem;letter-spacing:2px;color:var(--auriu-d);}
+.pos-dots b{color:var(--terra);font-weight:900;}
+
+/* ---- test (Provocarea lui Mimi) ---- */
+.quiz-stars{font-size:1.7rem;letter-spacing:7px;}
+.quiz-stars .off{opacity:.22;}
+.opt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:430px;width:100%;}
+.opt{background:var(--ivory);border:2px solid var(--border);border-radius:18px;padding:10px;cursor:pointer;transition:transform .1s;}
+.opt:active{transform:scale(.95);}
+.opt img{width:74px;height:74px;display:block;margin:0 auto;}
+.opt.good{border-color:var(--emerald);box-shadow:0 0 0 4px #d1fae5;pointer-events:none;}
+.opt.bad{animation:shake .4s;}
+
+/* ---- diploma (in-app) ---- */
+.diploma-card{background:var(--ivory);border:3px solid var(--auriu);border-radius:18px;padding:18px 16px;max-width:420px;width:100%;display:flex;flex-direction:column;gap:12px;align-items:center;}
+.name-input{font-family:inherit;font-size:1.15rem;padding:10px 14px;border-radius:12px;border:2px solid var(--border);width:90%;text-align:center;color:var(--ink);}
+.name-input:focus{outline:none;border-color:var(--emerald);}
+
+/* ---- parinte overlay ---- */
+.footlink{background:none;border:none;font-family:inherit;color:var(--emerald-d);font-weight:600;cursor:pointer;text-decoration:underline;font-size:.82rem;}
+.overlay{position:fixed;inset:0;background:rgba(31,27,22,.55);display:none;align-items:center;justify-content:center;z-index:100;padding:18px;}
+.overlay.on{display:flex;}
+.panel{background:#fff;border-radius:20px;max-width:470px;width:100%;padding:22px 22px 26px;max-height:90vh;overflow:auto;box-shadow:0 12px 40px rgba(0,0,0,.3);}
+.panel h3{color:var(--emerald-dd);margin:0 0 4px;font-size:1.3rem;}
+.panel .close{float:right;border:none;background:var(--surface);width:34px;height:34px;border-radius:50%;font-size:1.1rem;cursor:pointer;color:var(--warm);}
+.panel h4{color:var(--emerald-d);margin:16px 0 6px;font-size:1rem;}
+.panel p,.panel li{font-size:.92rem;color:var(--warm);line-height:1.55;}
+.panel .wlist{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0;}
+.panel .wlist span{background:var(--surface);border-radius:8px;padding:3px 10px;font-size:.85rem;color:var(--ink);}
+.panel .plink{display:inline-block;margin-top:10px;background:var(--emerald);color:#fff;padding:10px 18px;border-radius:12px;text-decoration:none;font-weight:600;}
+
+/* ---- print diploma ---- */
+#diploma-print,#coloring-print{display:none;}
+@page{ margin:0; }
+@media print{
+  body *{visibility:hidden;}
+  #diploma-print,#diploma-print *,#coloring-print,#coloring-print *{visibility:visible;}
+  #diploma-print,#coloring-print{display:block;position:absolute;left:0;top:0;width:100%;padding:12mm 8mm 0;box-sizing:border-box;}
+}
+/* ---- pagina de colorat (ABC-Geschichte) ---- */
+.color-page{width:94%;max-width:760px;margin:14px auto;text-align:center;color:#1F1B16;}
+.color-page .cp-head{font-size:12px;color:#047857;font-weight:700;letter-spacing:1px;text-transform:uppercase;}
+.color-page .cp-title{font-size:20px;color:#065f46;margin:8px 0 12px;}
+.color-page>img{width:100%;max-width:700px;border:2px solid #1F1B16;border-radius:10px;background:#fff;}
+.color-page .cp-sentence{font-size:24px;font-weight:700;letter-spacing:3px;margin-top:16px;color:#1F1B16;}
+.color-page .cp-foot{font-size:12px;color:#5A5147;margin-top:10px;}
+.dip{width:92%;max-width:760px;margin:18px auto;border:7px double var(--auriu-d);border-radius:16px;padding:34px 30px;text-align:center;color:var(--ink);background:#fff;}
+.dip .dip-brand{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--emerald-d);font-weight:700;}
+.dip h1{font-size:40px;color:var(--emerald-dd);margin:8px 0 4px;}
+.dip .dip-name{font-size:30px;color:var(--terra);font-weight:700;border-bottom:2px solid var(--auriu);display:inline-block;padding:0 24px 4px;margin:14px 0;}
+.dip .dip-text{font-size:18px;color:var(--ink);}
+.dip .dip-letter{font-size:64px;font-weight:800;color:var(--emerald-dd);margin:8px 0;}
+.dip .dip-stars{font-size:30px;letter-spacing:8px;}
+.dip>img{width:80px;height:80px;}
+.dip .dip-foot{font-size:12px;color:var(--warm);margin-top:16px;}
+
+@media(max-width:480px){
+  .title{font-size:1.7rem;} .letter-hero{font-size:6rem;}
+  .mimi{width:130px;height:130px;} .circle{width:88px;height:88px;} .circle img{width:62px;height:62px;}
+  .dl{font-size:5rem;} .lcell{font-size:1.2rem;}
+  .flip-card{width:210px;height:264px;}
+}

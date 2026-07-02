@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <rect x="42" y="26" width="36" height="12" rx="3" fill="#1F1B16"/>
+  <text x="60" y="35" font-family="Arial" font-size="8" fill="#fff" text-anchor="middle" font-weight="bold">TAXI</text>
+  <path d="M18 78 q2 -18 16 -18 l10 -14 q4 -5 11 -5 h20 q7 0 11 6 l8 13 l10 3 q8 2 8 16 l0 6 q0 4 -4 4 h-90 q-4 0 -4 -4z" fill="#D4A574" stroke="#065f46" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M44 58 l8 -11 q2 -3 6 -3 h12 v14z" fill="#d1fae5" stroke="#065f46" stroke-width="2.2"/>
+  <path d="M74 44 q5 0 8 5 l6 9 h-14z" fill="#d1fae5" stroke="#065f46" stroke-width="2.2"/>
+  <rect x="36" y="66" width="48" height="6" fill="#1F1B16"/>
+  <rect x="36" y="66" width="8" height="6" fill="#fff"/><rect x="52" y="66" width="8" height="6" fill="#fff"/><rect x="68" y="66" width="8" height="6" fill="#fff"/>
+  <circle cx="38" cy="88" r="12" fill="#1F1B16"/><circle cx="38" cy="88" r="5" fill="#FBF7EF"/>
+  <circle cx="86" cy="88" r="12" fill="#1F1B16"/><circle cx="86" cy="88" r="5" fill="#FBF7EF"/>
+</svg>

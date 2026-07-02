@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="robots" content="noindex, nofollow">
+<title>FIBEL · Litera Ei cu Herzchen 🧡</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="topbar">
+  <button class="navbtn" id="backBtn" aria-label="Înapoi" title="Înapoi">←</button>
+  <div class="dots" id="dots"></div>
+  <button class="navbtn" id="fwdBtn" aria-label="Înainte" title="Înainte">→</button>
+</div>
+
+<main class="stage" id="stage"><!-- screens injected by app.js --></main>
+
+<div class="brandbar"><img src="images/butterfly-emerald.png" class="bf-foot" alt=""> <b>Claudia Toth</b> · FIBEL · © 2026</div>
+
+<!-- overlay parinti/profesori -->
+<div class="overlay" id="parentOverlay">
+  <div class="panel">
+    <button class="close" id="parentClose" aria-label="Închide">✕</button>
+    <h3>👩‍🏫 Pentru părinți și educatoare</h3>
+    <p>„Litera Ei cu Herzchen" învață copilul (4–8 ani) să recunoască digraful <b>Ei</b> (se citește „ai", un singur sunet), primele cuvinte germane cu Ei — și <b>propoziții</b> citite și scrise din literele învățate. Personajul-ghid este <b>Herzchen</b> (inimioara) — creația originală a Claudiei. 🧡</p>
+
+    <h4>Cum o folosești</h4>
+    <p>Parcurge ecranele împreună cu copilul. Apasă butoanele 🔊 — Herzchen spune cuvântul în germană, copilul ascultă, atinge și repetă. Folosește săgețile <b>← →</b> de sus ca să mergi înainte/înapoi. La final: diplomă + pagină de colorat (ABC-Geschichte).</p>
+
+    <h4>Cuvintele lecției (digraful Ei)</h4>
+    <div class="wlist" id="parentWords"></div>
+
+    <h4>Materiale</h4>
+    <p>Fișă de lucru tipăribilă + diploma la final.</p>
+    <a class="plink" href="fibel-litera-ei.pdf" target="_blank" rel="noopener">📄 Deschide fișa PDF</a>
+  </div>
+</div>
+
+<!-- diploma + pagina de colorat pentru tiparire -->
+<div id="diploma-print"></div>
+<div id="coloring-print"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
