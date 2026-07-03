@@ -208,8 +208,9 @@ body{
 .stl-head{display:flex;align-items:center;gap:10px;justify-content:center;font-size:1.4rem;font-weight:700;color:var(--emerald-dd);}
 .stl-mini{font-family:inherit;border:2px solid var(--border);background:var(--ivory);border-radius:10px;width:38px;height:38px;cursor:pointer;font-size:1rem;color:var(--emerald-d);box-shadow:0 2px 0 #e3dccb;transition:transform .1s;}
 .stl-mini:active{transform:translateY(2px);box-shadow:none;}
-.stl-wrap{position:relative;display:flex;flex-wrap:wrap;align-items:flex-end;gap:2px;justify-content:center;
+.stl-wrap{position:relative;display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 24px;justify-content:center;
   background:var(--ivory);border:2px dashed var(--terra);border-radius:16px;padding:8px 6px;margin-top:6px;}
+.stl-word{display:flex;flex-wrap:nowrap;align-items:flex-end;gap:2px;}
 .stl-cell{width:46px;height:66px;}
 .stl-cell img{width:100%;height:100%;display:block;pointer-events:none;}
 .stl-gap{width:20px;}
