@@ -17,12 +17,12 @@ const TOTAL_STEPS = 16;
 
 /* ---------- dictionar de cuvinte ---------- */
 const EI = {
-  eis:       {de:'das Eis',       icon:'eis',       audio:'ei-eis',       gen:'n', art:'das', ro:'înghețata',  m:true},
-  ei:        {de:'das Ei',        icon:'ei',        audio:'ei-ei',        gen:'n', art:'das', ro:'oul',        m:true},
-  eimer:     {de:'der Eimer',     icon:'eimer',     audio:'ei-eimer',     gen:'m', art:'der', ro:'găleata',    m:true},
-  eiche:     {de:'die Eiche',     icon:'eiche',     audio:'ei-eiche',     gen:'f', art:'die', ro:'stejarul',   m:true},
-  eisenbahn: {de:'die Eisenbahn', icon:'eisenbahn', audio:'ei-eisenbahn', gen:'f', art:'die', ro:'trenul',     m:true},
-  eisbaer:   {de:'der Eisbär',    icon:'eisbaer',   audio:'ei-eisbaer',   gen:'m', art:'der', ro:'ursul polar',m:true},
+  eis:       {de:'das Eis',       icon:'eis',       audio:'ei-eis', audioArt:'ei-art-eis',       gen:'n', art:'das', ro:'înghețata',  m:true},
+  ei:        {de:'das Ei',        icon:'ei',        audio:'ei-ei', audioArt:'ei-art-ei',        gen:'n', art:'das', ro:'oul',        m:true},
+  eimer:     {de:'der Eimer',     icon:'eimer',     audio:'ei-eimer', audioArt:'ei-art-eimer',     gen:'m', art:'der', ro:'găleata',    m:true},
+  eiche:     {de:'die Eiche',     icon:'eiche',     audio:'ei-eiche', audioArt:'ei-art-eiche',     gen:'f', art:'die', ro:'stejarul',   m:true},
+  eisenbahn: {de:'die Eisenbahn', icon:'eisenbahn', audio:'ei-eisenbahn', audioArt:'ei-art-eisenbahn', gen:'f', art:'die', ro:'trenul',     m:true},
+  eisbaer:   {de:'der Eisbär',    icon:'eisbaer',   audio:'ei-eisbaer', audioArt:'ei-art-eisbaer',   gen:'m', art:'der', ro:'ursul polar',m:true},
   maus:  {de:'die Maus',  icon:'m-maus',audio:'ei-maus',  gen:'f', art:'die', ro:'șoricelul', m:false},
   mond:  {de:'der Mond',  icon:'m-mond',audio:'ei-mond',  gen:'m', art:'der', ro:'luna',      m:false},
   ball:  {de:'der Ball',  icon:'ball',  audio:'ei-ball',  gen:'m', art:'der', ro:'mingea',    m:false},
@@ -219,7 +219,7 @@ SCREENS[3] = function(){
     '<h1 class="title" style="font-size:1.5rem">Cuvinte cu Ei</h1>' +
     '<div class="cards">'+cards+'</div>' + nextBtn()
   );
-  stage.querySelectorAll('.card').forEach(el=>{ el.onclick = ()=>{ el.classList.add('tapped'); play(EI[el.dataset.k].audio); }; });
+  stage.querySelectorAll('.card').forEach(el=>{ el.onclick = ()=>{ el.classList.add('tapped'); play(EI[el.dataset.k].audioArt||EI[el.dataset.k].audio); }; });
   wireNext(4);
 };
 
@@ -452,8 +452,9 @@ SCREENS[10] = function(){
       nextBtn()
     );
     const fc = document.getElementById('fc');
-    fc.onclick = ()=>{ fc.classList.toggle('flipped'); play(w.audio); };
-    play(w.audio);
+    const _wav = w.audioArt||w.audio;
+    fc.onclick = ()=>{ fc.classList.toggle('flipped'); play(_wav); };
+    play(_wav);
     const pv=document.getElementById('cprev'), nx=document.getElementById('cnext');
     pv.disabled = (i<=0); nx.disabled = (i>=WORDS_EI.length-1);
     pv.onclick = ()=>{ if(i>0){ i--; card(); } };
